@@ -1,5 +1,4 @@
 #
-
 #
 # This software is licensed under the terms of the GNU General Public
 # License version 2, as published by the Free Software Foundation, and
@@ -29,20 +28,20 @@ White='\e[0;37m'        # White
 nocol='\033[0m'         # Default
 
 # Tweakable Options Below
-export ARCH=arm
-export SUBARCH=arm
-export KBUILD_BUILD_USER="KunalKene1797"
+export ARCH=arm64
+export SUBARCH=arm64
+export KBUILD_BUILD_USER="ishitac20"
 export KBUILD_BUILD_HOST="BlackServer"
-export CROSS_COMPILE="/home/kunalkene1797/arm-eabi-6.0/bin/arm-eabi-"
+export CROSS_COMPILE="/home/ishitac20/arm-eabi-6.0/bin/arm-eabi-"
 
 # Compilation Scripts Are Below
 compile_kernel ()
 {
 echo -e "$White***********************************************"
-echo "         Compiling BlackBox kernel             "
+echo "         Compiling T kernel             "
 echo -e "***********************************************$nocol"
 make clean && make mrproper
-make cyanogenmod_sprout_defconfig
+make enchilada_user_defconfig
 make -j4
 if ! [ -a $ZIMAGE ];
 then
@@ -54,7 +53,7 @@ fi
 # Finalizing Script Below
 case $1 in
 clean)
-make ARCH=arm -j3 clean mrproper
+make ARCH=arm64 -j7 clean mrproper
 rm -rf include/linux/autoconf.h
 ;;
 *)
